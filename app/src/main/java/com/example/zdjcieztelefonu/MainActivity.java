@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imageView;
     Button button;
+    Button buttonTurnLeft90;
+    Button buttonTurnRight90;
+    float x = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Mikołaj Zabiegałowski 4pr T5");
         imageView = findViewById(R.id.photoCamera);
         button = findViewById(R.id.photoButton);
+        buttonTurnLeft90 = findViewById(R.id.buttonTurnLeft90);
+        buttonTurnRight90 = findViewById(R.id.buttonTurnRight90);
+
 
         //Request for camera access
         if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
@@ -43,6 +50,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,100);
+            }
+        });
+
+        //Button rotate
+        buttonTurnLeft90.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                x = x - 90;
+                imageView.setRotation(x);
+            }
+        });
+        buttonTurnRight90.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                x = x + 90;
+                imageView.setRotation(x);
             }
         });
     }
