@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("Mikołaj Zabiegałowski 4pr T5");
         imageView = findViewById(R.id.photoCamera);
         button = findViewById(R.id.photoButton);
 
